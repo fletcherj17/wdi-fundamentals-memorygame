@@ -72,7 +72,18 @@ function flipCard(){
 	};
 };
 
-document.querySelector('button').addEventListener('click', resetCards);
+document.querySelector('#start').addEventListener('click', flipAllCards);
+
+function flipAllCards(){
+	let allCards = document.getElementsByTagName('img')
+	for(i=0;i<allCards.length;i++){
+	let cardId = allCards[i].getAttribute('data-id');
+	allCards[i].setAttribute('src', cards[cardId].cardImage);		
+	};
+	setTimeout(resetCards, 500);
+};
+
+document.querySelector('#reset').addEventListener('click', resetCards);
 
 function resetCards(){
 	let allCards = document.getElementsByTagName('img')
